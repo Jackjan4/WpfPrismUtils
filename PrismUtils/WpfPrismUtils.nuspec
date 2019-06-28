@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>WpfPrismUtils</id>
-    <version>0.8.4</version>
+    <version>0.8.6</version>
     <title>WpfPrismUtils</title>
     <authors>Jan-Philipp Roslan</authors>
     <owners>Jan-Philipp Roslan</owners>
@@ -11,8 +11,8 @@
     <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl> -->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Utility library for WPF projects with Prism</description>
-    <releaseNotes>Init Package</releaseNotes>
-    <copyright>Copyright 2019</copyright>
+    <releaseNotes>Fixed Unity dependencies</releaseNotes>
+    <copyright>Licensed under MIT License</copyright>
     <tags>WPF C# Prism Unity</tags>
   </metadata>
 </package>
