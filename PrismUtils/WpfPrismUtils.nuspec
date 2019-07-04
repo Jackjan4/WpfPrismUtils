@@ -8,7 +8,7 @@
     <owners>Jan-Philipp Roslan</owners>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/Jackjan4/WpfPrismUtils</projectUrl>
-    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl> -->
+    <!-- <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl> -->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Utility library for WPF projects with Prism</description>
     <releaseNotes>Added parameters to WindowService and added Unit tests</releaseNotes>
