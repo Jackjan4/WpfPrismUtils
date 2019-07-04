@@ -24,13 +24,17 @@ namespace De.JanRoslan.WpfPrismUtils.Windowing {
         /// <summary>
         /// Keeping track of which windows are currently open, so we can list them or close them later
         /// </summary>
-        private readonly Dictionary<string, Window> _windows;
+        private readonly Dictionary<string, Tuple<Window, Dictionary<string, object>>> _windows;
 
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="container"></param>
         public WindowService(IUnityContainer container) {
             _container = container;
-            _windows = new Dictionary<string, Window>();
+            _windows = new Dictionary<string, Tuple<Window, Dictionary<string, object>>>();
         }
 
 
@@ -50,11 +54,32 @@ namespace De.JanRoslan.WpfPrismUtils.Windowing {
         }
 
         public void CloseWindow(string name) {
-            _windows[name].Close();
+            _windows[name].Item1.Close();
             _windows.Remove(name);
         }
 
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="customTypes"></param>
+        /// <returns></returns>
         public Window InitWindow(string name, Type[] customTypes = null) {
+            return InitWindow(name, null, customTypes);
+        }
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="parameters"></param>
+        /// <param name="customTypes"></param>
+        /// <returns></returns>
+        public Window InitWindow(string name, Dictionary<string, object> parameters, Type[] customTypes = null) {
             Type[] types = customTypes ?? Assembly.GetCallingAssembly().GetTypes();
 
             try {
@@ -65,7 +90,7 @@ namespace De.JanRoslan.WpfPrismUtils.Windowing {
                 }
 
                 Window win = (Window) obj;
-                _windows[name] = win;
+                _windows[name] = new Tuple<Window, Dictionary<string, object>>(win, parameters ?? new Dictionary<string, object>());
                 return win;
 
             } catch (Exception es) {
@@ -73,12 +98,16 @@ namespace De.JanRoslan.WpfPrismUtils.Windowing {
             }
         }
 
+        public Dictionary<string, object> GetWindowContext(string name) {
+            return _windows[name].Item2;
+        }
+
         public FrameworkElement InitFrameWorkElement(string name, Type[] customTypes = null) {
-            var list = new List<Type[]>
+            var list = new HashSet<Type[]>
             {
                 Assembly.GetCallingAssembly().GetTypes(),
                 Assembly.GetExecutingAssembly().GetTypes(),
-                Assembly.GetCallingAssembly().GetTypes()
+                Assembly.GetEntryAssembly()?.GetTypes()
             };
 
             // No custom assembly was delivered
@@ -88,6 +117,11 @@ namespace De.JanRoslan.WpfPrismUtils.Windowing {
 
             object obj = null;
             foreach (Type[] types in list) {
+
+                // List is null (for example when an added assembly is null
+                if (types == null) {
+                    continue;
+                }
 
                 Type first = types.FirstOrDefault(t => t.Name == name);
                 if (first == null) {
