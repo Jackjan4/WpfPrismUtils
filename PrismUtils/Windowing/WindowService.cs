@@ -42,15 +42,21 @@ namespace De.JanRoslan.WpfPrismUtils.Windowing {
         /// Opens the WPF-Window with the given name
         /// </summary>
         public void OpenWindow(string name) {
-
-            Type[] types = Assembly.GetCallingAssembly().GetTypes();
-            InitWindow(name, types).Show();
+            OpenWindow(name, null);
         }
 
         public void OpenWindowDialog(string name) {
+            OpenWindowDialog(name, null);
+        }
 
+        public void OpenWindow(string name, Dictionary<string, object> parameters) {
             Type[] types = Assembly.GetCallingAssembly().GetTypes();
-            InitWindow(name, types).ShowDialog();
+            InitWindow(name, parameters, types).Show();
+        }
+
+        public void OpenWindowDialog(string name, Dictionary<string, object> parameters) {
+            Type[] types = Assembly.GetCallingAssembly().GetTypes();
+            InitWindow(name, parameters, types).ShowDialog();
         }
 
         public void CloseWindow(string name) {

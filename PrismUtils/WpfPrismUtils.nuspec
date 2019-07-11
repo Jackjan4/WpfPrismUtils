@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>WpfPrismUtils</id>
-    <version>0.8.7</version>
+    <version>0.8.8</version>
     <title>WpfPrismUtils</title>
     <authors>Jan-Philipp Roslan</authors>
     <owners>Jan-Philipp Roslan</owners>
@@ -11,7 +11,7 @@
     <!-- <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl> -->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Utility library for WPF projects with Prism</description>
-    <releaseNotes>Added parameters to WindowService and added Unit tests</releaseNotes>
+    <releaseNotes>Parameters in WindowService fully working</releaseNotes>
     <copyright>Licensed under MIT License</copyright>
     <tags>WPF C# Prism Unity</tags>
   </metadata>

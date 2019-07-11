@@ -13,6 +13,10 @@ namespace De.JanRoslan.WpfPrismUtils.Windowing {
 
         void OpenWindowDialog(string name);
 
+        void OpenWindow(string name, Dictionary<string, object> parameters);
+
+        void OpenWindowDialog(string name, Dictionary<string, object> parameters);
+
         void CloseWindow(string name);
 
         Window InitWindow(string name, Type[] customTypes = null);
@@ -20,7 +24,7 @@ namespace De.JanRoslan.WpfPrismUtils.Windowing {
         Window InitWindow(string name, Dictionary<string, object> parameters, Type[] customTypes = null);
 
 
-        // TODO: Maybe change the string to something like type or directly get the type with Reflection. If not, document the string use here properly
+        // TODO: Maybe change the string to something like type or directly get the type with Reflection (so without parameter). If not, document the string use here properly
         Dictionary<string, object> GetWindowContext(string name);
 
         FrameworkElement InitFrameWorkElement(string name, Type[] customTypes = null);
