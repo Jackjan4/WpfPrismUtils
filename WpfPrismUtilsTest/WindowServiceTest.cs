@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Reflection;
 using De.JanRoslan.WpfPrismUtils.Windowing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using WpfPrismUtilsTest.Dummies;
 
 namespace WpfPrismUtilsTest {
     [TestClass]
