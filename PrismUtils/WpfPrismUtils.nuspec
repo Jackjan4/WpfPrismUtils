@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>WpfPrismUtils</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <title>WpfPrismUtils</title>
     <authors>Jackjan4</authors>
     <owners>Jackjan4</owners>
@@ -11,7 +11,7 @@
     <!-- <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl> -->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Utility library for WPF projects with Prism</description>
-    <releaseNotes>Updated dependencies to latest version (including Unity)</releaseNotes>
+    <releaseNotes>Cleanup and readded RemoveWindow method</releaseNotes>
     <copyright>Licensed under MIT License</copyright>
     <tags>WPF C# Prism Unity MVVM</tags>
   </metadata>
