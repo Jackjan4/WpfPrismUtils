@@ -1,2 +1,2 @@
-nuget pack -Prop Configuration=Release
+nuget pack -Build -Prop Configuration=Release
 pause
